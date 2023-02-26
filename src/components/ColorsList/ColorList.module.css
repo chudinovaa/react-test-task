@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  gap: 5px;
+  margin: 5px 0;
+}
+
+.rect {
+  width: 15px;
+  height: 15px;
+  box-shadow: 1px 1px 1px gray;
+}
