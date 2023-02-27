@@ -1,4 +1,4 @@
-import {useEffect, useMemo, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {getProduct, getProducts, getSizes} from '../services/api';
 
 export const useProducts = (id) => {
@@ -12,7 +12,6 @@ export const useProducts = (id) => {
       setError("");
       setLoading(true);
       const response = id ? await getProduct(id) : await getProducts()
-      console.log(response)
       setProducts(response);
       setLoading(false);
     } catch (error) {

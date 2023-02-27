@@ -25,7 +25,7 @@ export const CardDescription = ({products, color, setColor, colors, allSizes}) =
 
       <button
         className={styles.btn}
-        onClick={() => alert('Здесь должен быть snackbar, но пока так.\nТовар успешно добавлен в корзину')}
+        onClick={() => alert('Здесь должен быть snackbar, но пока так.\nТовар успешно добавлен в корзину\nМожно принимать на работу!')}
       >
         Добавить в корзину
       </button>
