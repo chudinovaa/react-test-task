@@ -8,4 +8,16 @@
   width: 15px;
   height: 15px;
   box-shadow: 1px 1px 1px gray;
+  border: 2px solid transparent;
+}
+
+.active {
+  width: 15px;
+  height: 15px;
+  box-shadow: 2px 2px 2px purple;
+  border: 2px solid purple;
+}
+
+.rect:hover {
+  scale: 1.05;
 }

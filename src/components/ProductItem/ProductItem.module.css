@@ -7,16 +7,16 @@
 }
 
 .card:hover {
-   box-shadow: rgb(128,0,128,0.2) 0px 10px 20px;
+  box-shadow: rgb(128, 0, 128, 0.2) 0 10px 20px;
   scale: 1.01;
 }
-
 
 .image {
   width: 100%;
   height: 267px;
   display: flex;
   justify-content: center;
+  pointer-events: none;
 }
 
 .price {
@@ -27,7 +27,6 @@
 
 .title {
   font-size: 1.2rem;
-
 }
 
 .description {

@@ -1,22 +1,19 @@
-import {useEffect, useState} from 'react';
-import {getProduct, getProducts} from '../services/api';
+import {useEffect, useMemo, useState} from 'react';
+import {getProduct, getProducts, getSizes} from '../services/api';
 
-export const useProducts = () => {
+export const useProducts = (id) => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+  const [allSizes, setAllSizes] = useState([])
 
-  async function fetchProducts(id) {
+  async function fetchProducts(id = null) {
     try {
       setError("");
       setLoading(true);
-      if (id) {
-        const response = await getProduct(id);
-        setProducts(response);
-      } else {
-        const response = await getProducts();
-        setProducts(response);
-      }
+      const response = id ? await getProduct(id) : await getProducts()
+      console.log(response)
+      setProducts(response);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -24,9 +21,23 @@ export const useProducts = () => {
     }
   }
 
+  async function getAllSizes() {
+    try {
+      const response = await getSizes()
+      setAllSizes(response)
+    } catch (error) {
+      setError(error);
+    }
+  }
+
   useEffect(() => {
-    void fetchProducts();
+    void fetchProducts(id);
+  }, [id])
+
+  useEffect(() => {
+    void getAllSizes()
   }, [])
 
-  return { loading, error, products}
+
+  return {loading, error, products, allSizes}
 }
